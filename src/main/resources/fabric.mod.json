@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "standardizations",
+  "version": "${version}",
+  "name": "standardizations",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/standardizations/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.vibzz.standardizations.Standardizations"
+    ]
+  },
+  "mixins": [
+    "standardizations.mixins.json"
+  ],
+  "accessWidener": "standardizations.accesswidener",
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_version}"
+  }
+}

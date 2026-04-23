@@ -1,0 +1,30 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.vibzz.standardizations.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "drops.BeehiveBlockMixin",
+    "drops.BlockDropStackMixin",
+    "drops.ComposterBlockMixin",
+    "drops.EntityPushOutMixin",
+    "drops.FallingBlockDropStackMixin",
+    "drops.ItemScattererMixin",
+    "drops.JukeboxBlockMixin",
+    "drops.LecternBlockMixin",
+    "drops.PumpkinBlockMixin",
+    "drops.ShulkerBoxBlockMixin",
+    "explosion.ExplosionRayEnergyMixin",
+    "explosion.ExplosionShuffleMixin",
+    "explosion.TntBlockMixin",
+    "explosion.TntEntityMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
