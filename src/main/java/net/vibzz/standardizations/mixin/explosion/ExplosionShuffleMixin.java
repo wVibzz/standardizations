@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
@@ -28,6 +29,6 @@ public abstract class ExplosionShuffleMixin {
         }
         @SuppressWarnings("unchecked")
         List<BlockPos> posList = (List<BlockPos>) list;
-        posList.sort((a, b) -> Long.compare(a.asLong(), b.asLong()));
+        posList.sort(Comparator.comparingLong(BlockPos::asLong));
     }
 }
