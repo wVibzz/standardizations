@@ -7,6 +7,9 @@ public class Standardizations implements ModInitializer {
 
     public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_BLOCK_DROPS;
     public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_EXPLOSIONS;
+    public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_SPAWNERS;
+    public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_ENDER_EYE;
+    public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_THROWABLES;
 
     @Override
     public void onInitialize() {
@@ -17,6 +20,21 @@ public class Standardizations implements ModInitializer {
         );
         STANDARDIZE_EXPLOSIONS = GameRules.register(
                 "standardizeExplosions",
+                GameRules.Category.MISC,
+                GameRules.BooleanRule.create(true)
+        );
+        STANDARDIZE_SPAWNERS = GameRules.register(
+                "standardizeSpawners",
+                GameRules.Category.MISC,
+                GameRules.BooleanRule.create(true)
+        );
+        STANDARDIZE_ENDER_EYE = GameRules.register(
+                "standardizeEnderEye",
+                GameRules.Category.MISC,
+                GameRules.BooleanRule.create(true)
+        );
+        STANDARDIZE_THROWABLES = GameRules.register(
+                "standardizeThrowables",
                 GameRules.Category.MISC,
                 GameRules.BooleanRule.create(true)
         );

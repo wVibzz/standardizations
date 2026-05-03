@@ -1,0 +1,20 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.vibzz.standardizations.explosion.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "ExplosionRayEnergyMixin",
+    "ExplosionShuffleMixin",
+    "TntBlockMixin",
+    "TntEntityMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

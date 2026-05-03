@@ -1,4 +1,4 @@
-package net.vibzz.standardizations.mixin.drops;
+package net.vibzz.standardizations.blockdrops.mixin;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.ItemEntity;
@@ -8,7 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.vibzz.standardizations.Standardizations;
-import net.vibzz.standardizations.util.BlockDropRng;
+import net.vibzz.standardizations.blockdrops.BlockDropRng;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

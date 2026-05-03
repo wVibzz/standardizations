@@ -1,4 +1,4 @@
-package net.vibzz.standardizations.util;
+package net.vibzz.standardizations.blockdrops;
 
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.server.world.ServerWorld;

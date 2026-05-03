@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.vibzz.standardizations.throwables.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "FishingBobberEntityMixin",
+    "ProjectileEntityMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

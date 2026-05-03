@@ -1,9 +1,9 @@
-package net.vibzz.standardizations.mixin.explosion;
+package net.vibzz.standardizations.explosion.mixin;
 
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
-import net.vibzz.standardizations.util.BlockDropRng;
+import net.vibzz.standardizations.blockdrops.BlockDropRng;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

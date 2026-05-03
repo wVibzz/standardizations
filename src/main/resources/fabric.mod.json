@@ -15,7 +15,11 @@
     ]
   },
   "mixins": [
-    "standardizations.mixins.json"
+    "standardizations-blockdrops.mixins.json",
+    "standardizations-enderEye.mixins.json",
+    "standardizations-explosion.mixins.json",
+    "standardizations-silverfish.mixins.json",
+    "standardizations-throwables.mixins.json"
   ],
   "accessWidener": "standardizations.accesswidener",
   "depends": {

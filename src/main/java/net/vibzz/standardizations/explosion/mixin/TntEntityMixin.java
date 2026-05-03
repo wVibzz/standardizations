@@ -1,10 +1,10 @@
-package net.vibzz.standardizations.mixin.explosion;
+package net.vibzz.standardizations.explosion.mixin;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.TntEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.vibzz.standardizations.util.BlockDropRng;
+import net.vibzz.standardizations.blockdrops.BlockDropRng;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;

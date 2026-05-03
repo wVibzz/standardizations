@@ -1,0 +1,26 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.vibzz.standardizations.blockdrops.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "BeehiveBlockMixin",
+    "BlockDropStackMixin",
+    "ComposterBlockMixin",
+    "EntityPushOutMixin",
+    "FallingBlockDropStackMixin",
+    "ItemScattererMixin",
+    "JukeboxBlockMixin",
+    "LecternBlockMixin",
+    "PumpkinBlockMixin",
+    "ShulkerBoxBlockMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

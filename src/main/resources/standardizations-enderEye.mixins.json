@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.vibzz.standardizations.enderEye.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "EnderEyeItemMixin",
+    "EyeOfEnderEntityMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

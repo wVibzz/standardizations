@@ -1,0 +1,23 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.vibzz.standardizations.silverfish.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "EntityPlaySoundMixin",
+    "EntityRandomAccessor",
+    "EntityUuidAccessor",
+    "MobSpawnerLogicMixin"
+  ],
+  "client": [
+    "AbstractSoundInstanceMixin",
+    "EntityTrackingSoundInstanceAccessor",
+    "WeightedSoundSetAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
