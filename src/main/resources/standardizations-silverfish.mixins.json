@@ -1,14 +1,15 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.vibzz.standardizations.spawners.mixin",
+  "package": "net.vibzz.standardizations.spawners.silverfish.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "EntityRandomAccessor",
-    "EntityUuidAccessor",
-    "MobSpawnerLogicMixin"
+    "EntityPlaySoundMixin"
   ],
   "client": [
+    "AbstractSoundInstanceMixin",
+    "EntityTrackingSoundInstanceAccessor",
+    "WeightedSoundSetAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
