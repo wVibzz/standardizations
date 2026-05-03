@@ -7,7 +7,7 @@ public class Standardizations implements ModInitializer {
 
     public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_BLOCK_DROPS;
     public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_EXPLOSIONS;
-    public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_SPAWNERS;
+    public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_SILVERFISH_SPAWNER;
     public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_ENDER_EYE;
     public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_THROWABLES;
 
@@ -23,8 +23,8 @@ public class Standardizations implements ModInitializer {
                 GameRules.Category.MISC,
                 GameRules.BooleanRule.create(true)
         );
-        STANDARDIZE_SPAWNERS = GameRules.register(
-                "standardizeSpawners",
+        STANDARDIZE_SILVERFISH_SPAWNER = GameRules.register(
+                "standardizeSilverfishSpawner",
                 GameRules.Category.MISC,
                 GameRules.BooleanRule.create(true)
         );

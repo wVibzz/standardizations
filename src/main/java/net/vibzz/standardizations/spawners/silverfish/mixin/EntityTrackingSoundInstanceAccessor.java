@@ -1,4 +1,4 @@
-package net.vibzz.standardizations.silverfish.mixin;
+package net.vibzz.standardizations.spawners.silverfish.mixin;
 
 import net.minecraft.client.sound.EntityTrackingSoundInstance;
 import net.minecraft.entity.Entity;

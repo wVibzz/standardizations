@@ -5,7 +5,7 @@ import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.Item;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
-import net.vibzz.standardizations.silverfish.mixin.EntityUuidAccessor;
+import net.vibzz.standardizations.spawners.mixin.EntityUuidAccessor;
 import net.vibzz.standardizations.throwables.ThrowableStandardization;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

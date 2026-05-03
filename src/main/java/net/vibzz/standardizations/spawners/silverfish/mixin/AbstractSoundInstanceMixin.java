@@ -1,4 +1,4 @@
-package net.vibzz.standardizations.silverfish.mixin;
+package net.vibzz.standardizations.spawners.silverfish.mixin;
 
 import net.minecraft.client.sound.AbstractSoundInstance;
 import net.minecraft.client.sound.EntityTrackingSoundInstance;
@@ -8,6 +8,7 @@ import net.minecraft.client.sound.SoundManager;
 import net.minecraft.client.sound.WeightedSoundSet;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
+import net.vibzz.standardizations.Standardizations;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -34,6 +35,7 @@ public abstract class AbstractSoundInstanceMixin {
         if (!(self instanceof EntityTrackingSoundInstance)) return;
         Entity entity = ((EntityTrackingSoundInstanceAccessor) self).getEntity();
         if (entity == null) return;
+        if (!entity.world.getGameRules().getBoolean(Standardizations.STANDARDIZE_SILVERFISH_SPAWNER)) return;
 
         List<SoundContainer<Sound>> sounds = ((WeightedSoundSetAccessor) set).getSounds();
         if (sounds.isEmpty()) return;

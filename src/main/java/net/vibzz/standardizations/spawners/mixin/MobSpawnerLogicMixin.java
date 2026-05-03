@@ -1,4 +1,4 @@
-package net.vibzz.standardizations.silverfish.mixin;
+package net.vibzz.standardizations.spawners.mixin;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -14,7 +14,7 @@ import net.minecraft.util.math.Box;
 import net.minecraft.world.MobSpawnerEntry;
 import net.minecraft.world.MobSpawnerLogic;
 import net.minecraft.world.World;
-import net.vibzz.standardizations.silverfish.SpawnerStandardization;
+import net.vibzz.standardizations.spawners.SpawnerStandardization;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -55,6 +55,7 @@ public abstract class MobSpawnerLogicMixin {
         World world = this.getWorld();
         if (world.isClient) return;
         if (!SpawnerStandardization.isActive(world)) return;
+        if (!"minecraft:silverfish".equals(this.spawnEntry.getEntityTag().getString("id"))) return;
         if (!this.isPlayerInRange()) return;
 
         BlockPos pos = this.getPos();

@@ -10,7 +10,7 @@ import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import net.vibzz.standardizations.enderEye.EnderEyeStandardization;
-import net.vibzz.standardizations.silverfish.mixin.EntityUuidAccessor;
+import net.vibzz.standardizations.spawners.mixin.EntityUuidAccessor;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;

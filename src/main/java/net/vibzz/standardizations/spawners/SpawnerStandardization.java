@@ -1,4 +1,4 @@
-package net.vibzz.standardizations.silverfish;
+package net.vibzz.standardizations.spawners;
 
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
@@ -19,7 +19,7 @@ public final class SpawnerStandardization {
 
     public static boolean isActive(World world) {
         return world instanceof ServerWorld
-                && world.getGameRules().getBoolean(Standardizations.STANDARDIZE_SPAWNERS);
+                && world.getGameRules().getBoolean(Standardizations.STANDARDIZE_SILVERFISH_SPAWNER);
     }
 
     public static long seedOf(World world) {

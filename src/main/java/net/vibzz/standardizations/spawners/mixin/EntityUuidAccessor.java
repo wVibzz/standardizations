@@ -1,4 +1,4 @@
-package net.vibzz.standardizations.silverfish.mixin;
+package net.vibzz.standardizations.spawners.mixin;
 
 import net.minecraft.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
