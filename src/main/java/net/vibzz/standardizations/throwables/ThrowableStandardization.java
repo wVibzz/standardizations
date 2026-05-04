@@ -3,6 +3,8 @@ package net.vibzz.standardizations.throwables;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.thrown.EggEntity;
 import net.minecraft.entity.projectile.thrown.EnderPearlEntity;
+import net.minecraft.entity.projectile.thrown.ExperienceBottleEntity;
+import net.minecraft.entity.projectile.thrown.PotionEntity;
 import net.minecraft.entity.projectile.thrown.SnowballEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -37,6 +39,8 @@ public final class ThrowableStandardization {
         if (entity instanceof EnderPearlEntity) return Items.ENDER_PEARL;
         if (entity instanceof EggEntity) return Items.EGG;
         if (entity instanceof SnowballEntity) return Items.SNOWBALL;
+        if (entity instanceof ExperienceBottleEntity) return Items.EXPERIENCE_BOTTLE;
+        if (entity instanceof PotionEntity) return ((PotionEntity) entity).getStack().getItem();
         return null;
     }
 

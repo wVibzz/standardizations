@@ -4,10 +4,12 @@
   "package": "net.vibzz.standardizations.explosion.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "ExplosionFireMixin",
     "ExplosionRayEnergyMixin",
     "ExplosionShuffleMixin",
     "TntBlockMixin",
-    "TntEntityMixin"
+    "TntEntityMixin",
+    "TntMinecartEntityMixin"
   ],
   "client": [
   ],

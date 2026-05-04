@@ -28,6 +28,10 @@ public final class BlockDropRng {
     public static final long SALT_TNT_ANGLE  = 0xC1L;
     public static final long SALT_TNT_FUSE   = 0xC2L;
     public static final long SALT_EXPLOSION_RAY = 0xC3L;
+    public static final long SALT_EXPLOSION_FIRE = 0xC4L;
+    public static final long SALT_TNT_MINECART_FUSE_A = 0xC5L;
+    public static final long SALT_TNT_MINECART_FUSE_B = 0xC6L;
+    public static final long SALT_TNT_MINECART_POWER = 0xC7L;
 
     private BlockDropRng() {}
 

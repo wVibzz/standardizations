@@ -4,6 +4,7 @@
   "package": "net.vibzz.standardizations.throwables.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "BlazeShootFireballMixin",
     "FishingBobberEntityMixin",
     "ProjectileEntityMixin"
   ],
