@@ -11,13 +11,11 @@ import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
 import net.vibzz.standardizations.Standardizations;
+import net.vibzz.standardizations.Rng;
 
 import java.util.UUID;
 
 public final class ThrowableStandardization {
-
-    private static final long MIX_C1 = 0xBF58476D1CE4E5B9L;
-    private static final long MIX_C2 = 0x94D049BB133111EBL;
 
     private static final long SALT_ATTEMPT = 0xE0L;
     private static final long SALT_GAUSS_X = 0xE1L;
@@ -45,28 +43,28 @@ public final class ThrowableStandardization {
     }
 
     public static UUID uuidForAttempt(long worldSeed, int attemptIndex, Item statItem) {
-        long base = mix(worldSeed
-                ^ ((long) attemptIndex * 0x9E3779B97F4A7C15L)
-                ^ ((long) Item.getRawId(statItem) * 0x6C3671D916B4A139L)
+        long base = Rng.mix(worldSeed
+                ^ ((long) attemptIndex * Rng.GAMMA)
+                ^ ((long) Item.getRawId(statItem) * Rng.SALT_A)
                 ^ SALT_ATTEMPT);
-        return new UUID(base, mix(base ^ MIX_C1));
+        return new UUID(base, Rng.mix(base ^ Rng.MIX_C1));
     }
 
     public static double gaussianFromUuid(UUID uuid, int axis) {
-        long base = mix(uuid.getMostSignificantBits() ^ (uuid.getLeastSignificantBits() * 0x9E3779B97F4A7C15L));
+        long base = Rng.mix(uuid.getMostSignificantBits() ^ (uuid.getLeastSignificantBits() * Rng.GAMMA));
         return gaussian(base, saltForAxis(axis));
     }
 
     public static double gaussianForAttempt(long worldSeed, int attemptIndex, long extraSalt, int axis) {
-        long base = mix(worldSeed
-                ^ ((long) attemptIndex * 0x9E3779B97F4A7C15L)
+        long base = Rng.mix(worldSeed
+                ^ ((long) attemptIndex * Rng.GAMMA)
                 ^ extraSalt);
         return gaussian(base, saltForAxis(axis));
     }
 
     private static double gaussian(long base, long axisSalt) {
-        double u1 = Math.max(uniform(mix(base ^ axisSalt ^ 0xC1L)), 1.0E-300);
-        double u2 = uniform(mix(base ^ axisSalt ^ 0xC2L));
+        double u1 = Math.max(Rng.uniform(Rng.mix(base ^ axisSalt ^ 0xC1L)), 1.0E-300);
+        double u2 = Rng.uniform(Rng.mix(base ^ axisSalt ^ 0xC2L));
         return Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2.0 * Math.PI * u2);
     }
 
@@ -76,15 +74,5 @@ public final class ThrowableStandardization {
             case 1: return SALT_GAUSS_Y;
             default: return SALT_GAUSS_Z;
         }
-    }
-
-    private static long mix(long z) {
-        z = (z ^ (z >>> 30)) * MIX_C1;
-        z = (z ^ (z >>> 27)) * MIX_C2;
-        return z ^ (z >>> 31);
-    }
-
-    private static double uniform(long bits) {
-        return (bits >>> 11) * 0x1.0p-53;
     }
 }

@@ -3,7 +3,7 @@ package net.vibzz.standardizations.explosion.mixin;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
-import net.vibzz.standardizations.blockdrops.BlockDropRng;
+import net.vibzz.standardizations.explosion.ExplosionRng;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -33,11 +33,11 @@ public abstract class ExplosionFireMixin {
     @Redirect(method = "affectWorld",
               at = @At(value = "INVOKE", target = "Ljava/util/Random;nextInt(I)I"))
     private int standardizations$deterministicFire(Random random, int bound) {
-        if (!BlockDropRng.isExplosionActive(this.world)) return random.nextInt(bound);
+        if (!ExplosionRng.isActive(this.world)) return random.nextInt(bound);
         BlockPos origin = new BlockPos(Math.floor(this.x), Math.floor(this.y), Math.floor(this.z));
         int idx = this.standardizations$fireIndex++;
-        double u = BlockDropRng.uniform01(BlockDropRng.seedOf(this.world), origin,
-                BlockDropRng.SALT_EXPLOSION_FIRE, idx);
+        double u = ExplosionRng.uniform01(ExplosionRng.seedOf(this.world), origin,
+                ExplosionRng.SALT_FIRE, idx);
         return (int) (u * bound);
     }
 }

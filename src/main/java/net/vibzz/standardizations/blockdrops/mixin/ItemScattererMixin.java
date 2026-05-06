@@ -7,6 +7,7 @@ import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+import net.vibzz.standardizations.Rng;
 import net.vibzz.standardizations.blockdrops.BlockDropRng;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -25,8 +26,6 @@ public abstract class ItemScattererMixin {
         BlockPos pos = new BlockPos(Math.floor(x), Math.floor(y), Math.floor(z));
         long seed = BlockDropRng.seedOf(world);
 
-        // per-call salt: distinguishes leaf spawn calls in the same container break
-        // (inventory iteration calls this leaf once per slot; each slot has its own item / count)
         long callKey = ((long) Registry.ITEM.getRawId(item.getItem()) << 32) ^ (item.getCount() & 0xffffffffL);
 
         double width = EntityType.ITEM.getWidth();    // 0.25
@@ -38,7 +37,7 @@ public abstract class ItemScattererMixin {
 
         int chunkIndex = 0;
         while (!item.isEmpty()) {
-            long chunkKey = callKey ^ ((long) (chunkIndex + 1) * 0x9E3779B97F4A7C15L);
+            long chunkKey = callKey ^ ((long) (chunkIndex + 1) * Rng.GAMMA);
             int chunkSize = (int) (BlockDropRng.uniform01(seed, pos, BlockDropRng.SALT_CHUNK_SIZE, chunkKey) * 21) + 10;
             ItemEntity entity = new ItemEntity(world, g, h, i, item.split(chunkSize));
             entity.yaw = (float) (BlockDropRng.uniform01(seed, pos, BlockDropRng.SALT_YAW_ALT, chunkKey) * 360.0);

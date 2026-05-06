@@ -9,6 +9,7 @@ import net.minecraft.client.sound.WeightedSoundSet;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
 import net.vibzz.standardizations.Standardizations;
+import net.vibzz.standardizations.Rng;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -43,11 +44,11 @@ public abstract class AbstractSoundInstanceMixin {
         if (totalWeight <= 0) return;
 
         UUID uuid = entity.getUuid();
-        long key = standardizations$mix(
+        long key = Rng.mix(
                 uuid.getMostSignificantBits()
-                        ^ (uuid.getLeastSignificantBits() * 0x9E3779B97F4A7C15L)
-                        ^ ((long) this.id.hashCode() * 0xBF58476D1CE4E5B9L)
-                        ^ ((long) entity.age * 0x94D049BB133111EBL));
+                        ^ (uuid.getLeastSignificantBits() * Rng.GAMMA)
+                        ^ ((long) this.id.hashCode() * Rng.SALT_A)
+                        ^ ((long) entity.age * Rng.SALT_B));
 
         int pick = (int) Math.floorMod(key, totalWeight);
         for (SoundContainer<Sound> container : sounds) {
@@ -62,12 +63,5 @@ public abstract class AbstractSoundInstanceMixin {
     @Unique
     private static boolean standardizations$shouldStandardize(Identifier id) {
         return id.getPath().startsWith("entity.silverfish.");
-    }
-
-    @Unique
-    private static long standardizations$mix(long z) {
-        z = (z ^ (z >>> 30)) * 0xBF58476D1CE4E5B9L;
-        z = (z ^ (z >>> 27)) * 0x94D049BB133111EBL;
-        return z ^ (z >>> 31);
     }
 }

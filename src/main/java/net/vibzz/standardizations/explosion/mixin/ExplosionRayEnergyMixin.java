@@ -3,7 +3,7 @@ package net.vibzz.standardizations.explosion.mixin;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
-import net.vibzz.standardizations.blockdrops.BlockDropRng;
+import net.vibzz.standardizations.explosion.ExplosionRng;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -34,13 +34,13 @@ public abstract class ExplosionRayEnergyMixin {
     @Redirect(method = "collectBlocksAndDamageEntities",
               at = @At(value = "INVOKE", target = "Ljava/util/Random;nextFloat()F"))
     private float standardizations$deterministicRayEnergy(Random random) {
-        if (!BlockDropRng.isExplosionActive(this.world)) return random.nextFloat();
+        if (!ExplosionRng.isActive(this.world)) return random.nextFloat();
         BlockPos origin = new BlockPos(Math.floor(this.x), Math.floor(this.y), Math.floor(this.z));
         int idx = this.standardizations$rayIndex++;
-        return (float) BlockDropRng.uniform01(
-                BlockDropRng.seedOf(this.world),
+        return (float) ExplosionRng.uniform01(
+                ExplosionRng.seedOf(this.world),
                 origin,
-                BlockDropRng.SALT_EXPLOSION_RAY,
+                ExplosionRng.SALT_RAY,
                 idx);
     }
 }

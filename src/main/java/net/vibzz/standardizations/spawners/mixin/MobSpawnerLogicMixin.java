@@ -14,6 +14,7 @@ import net.minecraft.util.math.Box;
 import net.minecraft.world.MobSpawnerEntry;
 import net.minecraft.world.MobSpawnerLogic;
 import net.minecraft.world.World;
+import net.vibzz.standardizations.Rng;
 import net.vibzz.standardizations.spawners.SpawnerStandardization;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -133,7 +134,7 @@ public abstract class MobSpawnerLogicMixin {
             float yaw = rng.nextFloat() * 360.0F;
             entity.refreshPositionAndAngles(entity.getX(), entity.getY(), entity.getZ(), yaw, 0.0F);
 
-            UUID uuid = new UUID(mobSeed, mobSeed ^ 0xBF58476D1CE4E5B9L);
+            UUID uuid = new UUID(mobSeed, mobSeed ^ Rng.MIX_C1);
             ((EntityUuidAccessor) entity).setUuidDirect(uuid);
             ((EntityUuidAccessor) entity).setUuidStringDirect(uuid.toString());
 

@@ -3,7 +3,7 @@ package net.vibzz.standardizations.explosion.mixin;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
-import net.vibzz.standardizations.blockdrops.BlockDropRng;
+import net.vibzz.standardizations.explosion.ExplosionRng;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -23,7 +23,7 @@ public abstract class ExplosionShuffleMixin {
     @Redirect(method = "affectWorld",
               at = @At(value = "INVOKE", target = "Ljava/util/Collections;shuffle(Ljava/util/List;Ljava/util/Random;)V"))
     private void standardizations$deterministicOrder(List<?> list, Random random) {
-        if (!BlockDropRng.isExplosionActive(this.world)) {
+        if (!ExplosionRng.isActive(this.world)) {
             Collections.shuffle(list, random);
             return;
         }
