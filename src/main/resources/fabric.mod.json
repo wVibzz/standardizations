@@ -21,7 +21,8 @@
     "standardizations-silverfish.mixins.json",
     "standardizations-spawners.mixins.json",
     "standardizations-throwables.mixins.json",
-    "standardizations-villagerTrades.mixins.json"
+    "standardizations-villagerTrades.mixins.json",
+    "standardizations-mobSpawns.mixins.json"
   ],
   "accessWidener": "standardizations.accesswidener",
   "depends": {

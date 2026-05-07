@@ -11,6 +11,7 @@ public class Standardizations implements ModInitializer {
     public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_ENDER_EYE;
     public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_THROWABLES;
     public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_VILLAGER_TRADES;
+    public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_INITIAL_SPAWNS;
 
     @Override
     public void onInitialize() {
@@ -41,6 +42,11 @@ public class Standardizations implements ModInitializer {
         );
         STANDARDIZE_VILLAGER_TRADES = GameRules.register(
                 "standardizeVillagerTrades",
+                GameRules.Category.MISC,
+                GameRules.BooleanRule.create(true)
+        );
+        STANDARDIZE_INITIAL_SPAWNS = GameRules.register(
+                "standardizeInitialSpawns",
                 GameRules.Category.MISC,
                 GameRules.BooleanRule.create(true)
         );
