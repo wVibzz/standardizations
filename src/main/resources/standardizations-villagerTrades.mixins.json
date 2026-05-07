@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.vibzz.standardizations.villagerTrades.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "AbstractTraderEntityAccessor",
+    "AbstractTraderEntityMixin",
+    "VillagerEntityRestockGateMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

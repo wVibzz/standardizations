@@ -20,7 +20,8 @@
     "standardizations-explosion.mixins.json",
     "standardizations-silverfish.mixins.json",
     "standardizations-spawners.mixins.json",
-    "standardizations-throwables.mixins.json"
+    "standardizations-throwables.mixins.json",
+    "standardizations-villagerTrades.mixins.json"
   ],
   "accessWidener": "standardizations.accesswidener",
   "depends": {

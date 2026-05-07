@@ -10,6 +10,7 @@ public class Standardizations implements ModInitializer {
     public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_SILVERFISH_SPAWNER;
     public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_ENDER_EYE;
     public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_THROWABLES;
+    public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_VILLAGER_TRADES;
 
     @Override
     public void onInitialize() {
@@ -35,6 +36,11 @@ public class Standardizations implements ModInitializer {
         );
         STANDARDIZE_THROWABLES = GameRules.register(
                 "standardizeThrowables",
+                GameRules.Category.MISC,
+                GameRules.BooleanRule.create(true)
+        );
+        STANDARDIZE_VILLAGER_TRADES = GameRules.register(
+                "standardizeVillagerTrades",
                 GameRules.Category.MISC,
                 GameRules.BooleanRule.create(true)
         );
