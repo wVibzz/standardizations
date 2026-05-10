@@ -39,7 +39,8 @@ public abstract class PrioritizedGoalMixin {
 
     private void standardizations$reseed() {
         MobEntity mob = MobSpawnStandardization.getCurrentMob();
-        if (mob != null && MobSpawnStandardization.isActiveForMob(mob)) {
+        if (mob == null) return;
+        if (MobSpawnStandardization.isActiveForMob(mob)) {
             MobSpawnStandardization.seedForGoalCall(mob, this.goal.getClass());
         }
     }

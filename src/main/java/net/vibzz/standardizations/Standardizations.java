@@ -12,6 +12,11 @@ public class Standardizations implements ModInitializer {
     public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_THROWABLES;
     public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_VILLAGER_TRADES;
     public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_INITIAL_SPAWNS;
+    public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_GLOWSTONE_DROPS;
+    public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_CROP_DROPS;
+    public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_ORE_DROPS;
+    public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_DROPS_BY_XYZ;
+    public static GameRules.Key<GameRules.BooleanRule> STANDARDIZE_DEBUG_NAMETAGS;
 
     @Override
     public void onInitialize() {
@@ -49,6 +54,31 @@ public class Standardizations implements ModInitializer {
                 "standardizeInitialSpawns",
                 GameRules.Category.MISC,
                 GameRules.BooleanRule.create(true)
+        );
+        STANDARDIZE_GLOWSTONE_DROPS = GameRules.register(
+                "standardizeGlowstoneDrops",
+                GameRules.Category.MISC,
+                GameRules.BooleanRule.create(true)
+        );
+        STANDARDIZE_CROP_DROPS = GameRules.register(
+                "standardizeCropDrops",
+                GameRules.Category.MISC,
+                GameRules.BooleanRule.create(true)
+        );
+        STANDARDIZE_ORE_DROPS = GameRules.register(
+                "standardizeOreDrops",
+                GameRules.Category.MISC,
+                GameRules.BooleanRule.create(true)
+        );
+        STANDARDIZE_DROPS_BY_XYZ = GameRules.register(
+                "standardizeDropsByXyz",
+                GameRules.Category.MISC,
+                GameRules.BooleanRule.create(false)
+        );
+        STANDARDIZE_DEBUG_NAMETAGS = GameRules.register(
+                "standardizeDebugNametags",
+                GameRules.Category.MISC,
+                GameRules.BooleanRule.create(false)
         );
     }
 }
